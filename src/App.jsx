@@ -6,6 +6,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+    const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,7 +27,6 @@ function App() {
 
 
 
-
   return (
     <div className='max-w-6xl m-4 md:mx-auto'>
       {
@@ -40,10 +40,10 @@ function App() {
           <h1 className='font-bold text-5xl'>Desserts</h1>
           {
             products.map((product) => (
-              <Card key={product.name} product={product} />
+              <Card key={product.id} product={product} setCart={setCart} cart={cart} />
             ))
           }
-          <Cart />
+          <Cart cart={cart} setCart={setCart} />
         </main>
       }
 
