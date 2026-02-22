@@ -11,16 +11,16 @@ function App() {
   const [confirm, setConfirm] = useState(false)
 
   const startOrder = () => {
-    setCart([]),
-      setConfirm(false)
+    setCart([]);
+    setConfirm(false);
   }
 
-  
+
   useEffect(() => {
-    const API_BASE = import.meta.env.VITE_API_URL || '/api';
+    // const API_BASE = import.meta.env.VITE_API_URL || '/api';
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${API_BASE}/products`);
+        const res = await fetch(`/api/products`);
         if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         setProducts(data);
