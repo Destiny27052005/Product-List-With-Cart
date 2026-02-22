@@ -15,10 +15,12 @@ function App() {
       setConfirm(false)
   }
 
+  const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/products`);
+        const res = await fetch(`${API_BASE}/products`);
         if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         setProducts(data);
