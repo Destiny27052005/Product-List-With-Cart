@@ -15,9 +15,9 @@ function App() {
       setConfirm(false)
   }
 
-  const API_BASE = import.meta.env.VITE_API_URL || '/api';
-
+  
   useEffect(() => {
+    const API_BASE = import.meta.env.VITE_API_URL || '/api';
     const fetchProducts = async () => {
       try {
         const res = await fetch(`${API_BASE}/products`);
